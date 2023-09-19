@@ -23,9 +23,13 @@ for i in word:
     nword.append("_")
 
 while chances>0:
-    user = input("Enter a word that you guess is present in the the given string: ".lower())
-    chances = chances - 1
+    user = input("Enter a character that you guess is present in the the given string: ".lower())
+    if user in word:
+        chances = chances + 1
+    else:
+        chances = chances - 1
     print("chances left: ", chances)
+    print('....')
 
     j = []
     for i in range(len(word)):
@@ -34,6 +38,7 @@ while chances>0:
 
     for i in j:
         nword[i]=user
+        
     final=''
     for i in nword:
         final+=i
@@ -42,6 +47,5 @@ while chances>0:
 if final==word:
     print("You guessed the word right. Its " , word)
 else:
-    print('You have exhausted all the tries. RIP !!!')
+    print('You have exhausted all the tries. Go grab a dictionary mate')
     print("The hidden word is : ", word)
-
